@@ -1,0 +1,32 @@
+<body class="text-center">
+  <div class="cover-container d-flex w-50 p-3 mx-auto flex-column centered">
+    <form #registerForm="ngForm" (ngSubmit)="register()">
+      <h2 class="text-center blue">Sign Up</h2>
+      <hr>
+
+      <div class="form-group">
+        <input type="text" class="form-control" required name="name" [(ngModel)]="model.name" placeholder="Name">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" required name="lastname" [(ngModel)]="model.lastname"
+          placeholder="Lastname">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" required name="username" [(ngModel)]="model.username"
+          placeholder="Username">
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="form-control" required name="password" [(ngModel)]="model.password"
+          placeholder="Password">
+      </div>
+
+      <div class="form-group text-center">
+        <button class="btn btn-success" type="submit">Register</button>
+      </div>
+
+    </form>
+  </div>
+</body>

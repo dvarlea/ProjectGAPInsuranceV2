@@ -1,0 +1,38 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+.rigth{
+  float: right;
+}
+
+.register{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.user{
+  color: #1285af !important;
+}
+
+.new{
+  color: limegreen !important;
+}
+
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.header{
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

@@ -1,0 +1,35 @@
+<header>
+  <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3'>
+    <div class="container">
+      <img src="../../assets/gap.svg">
+      <div class="navbar-nav">
+        <ul class="navbar-nav flex-grow" *ngIf="loggedIn()">
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link text-dark" [routerLink]='["/"]'>HOME</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/insurance"]'>INSURANCES</a>
+          </li>
+          <li *ngIf="isAdmin()" class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link new" [routerLink]='["/insurance"]'>NEW ITEM</a>
+          </li>
+        </ul>
+        <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+          <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required
+            [(ngModel)]="model.username">
+          <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required
+            [(ngModel)]="model.password">
+          <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+        </form>
+
+        <ul class="navbar-nav flex-grow" *ngIf="loggedIn()">
+          <li class="nav-item user">
+            <a class="nav-link user">Welcome {{authService.decodedToken?.unique_name | titlecase}}</a>
+          </li>
+        </ul>
+        <button class="btn btn-primary register my-2 my-sm-0" (click)="onRegisterClick()">Register</button>
+        <button class="btn btn-warning my-2 my-sm-0" *ngIf="loggedIn()" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+</header>

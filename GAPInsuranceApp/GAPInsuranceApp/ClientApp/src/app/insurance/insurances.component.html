@@ -1,0 +1,40 @@
+<h1>Insurances</h1>
+
+<p *ngIf="!insurances"><em>No Insurances Found</em></p>
+
+<table class='table table-striped' *ngIf="insurances">
+  <thead>
+    <tr>
+      <th *ngIf="isAdmin()"></th>
+      <th *ngIf="isAdmin()"></th>
+      <th>Id</th>
+      <th>Client</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Coverages</th>
+      <th>Coverage Percentage</th>
+      <th>Begining</th>
+      <th>Time Period</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let insurance of insurances">
+      <td *ngIf="isAdmin()">
+        <a [routerLink]='["/insurance"]'><i class="fas fa-pencil-alt"></i></a>
+      </td>
+      <td *ngIf="isAdmin()">
+        <a [routerLink]='["/insurance"]'><i class="fas fa-trash"></i></a>
+      </td>
+      <td>{{ insurance.id }}</td>
+      <td>{{ insurance.clientId }}</td>
+      <td>{{ insurance.name }}</td>
+      <td>{{ insurance.description }}</td>
+      <td>{{ insurance.coverages }}</td>
+      <td>{{ insurance.coverageAmt | percent: '1.2-5'}}</td>
+      <td>{{ insurance.begining | date }}</td>
+      <td>{{ insurance.timePeriod }}</td>
+      <td>{{ insurance.price | currency }}</td>
+    </tr>
+  </tbody>
+</table>
