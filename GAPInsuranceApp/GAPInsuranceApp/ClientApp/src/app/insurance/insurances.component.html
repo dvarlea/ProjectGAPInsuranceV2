@@ -7,7 +7,7 @@
     <tr>
       <th *ngIf="isAdmin()"></th>
       <th *ngIf="isAdmin()"></th>
-      <th>Id</th>
+      <th hidden>Id</th>
       <th>Client</th>
       <th>Name</th>
       <th>Description</th>
@@ -16,6 +16,7 @@
       <th>Begining</th>
       <th>Time Period</th>
       <th>Price</th>
+      <th>Risk</th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +25,9 @@
         <a [routerLink]='["/insurance"]'><i class="fas fa-pencil-alt"></i></a>
       </td>
       <td *ngIf="isAdmin()">
-        <a [routerLink]='["/insurance"]'><i class="fas fa-trash"></i></a>
+        <a (click)="deleteInsurance(insurance)"><i class="fas fa-trash"></i></a>
       </td>
-      <td>{{ insurance.id }}</td>
+      <td hidden>{{ insurance.id }}</td>
       <td>{{ insurance.clientId }}</td>
       <td>{{ insurance.name }}</td>
       <td>{{ insurance.description }}</td>
@@ -35,6 +36,7 @@
       <td>{{ insurance.begining | date }}</td>
       <td>{{ insurance.timePeriod }}</td>
       <td>{{ insurance.price | currency }}</td>
+      <td>{{ insurance.risk | convertRisks}}</td>
     </tr>
   </tbody>
 </table>

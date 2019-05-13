@@ -9,7 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { InsurancesComponent } from './insurance/insurances.component';
 import { RegisterComponent } from './register/register.component';
 import { NonAdminGuard } from './guards/non-admin.guard';
-import { InsuranceDataComponent } from './Insurance/insurance-data.component';
+import { InsuranceDataComponent } from './insurance/insurance-data.component';
+import { ConvertRisksPipe } from './shared/risks.pipe';
+import { NonAddGuard } from './guards/non-add.guard';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { InsuranceDataComponent } from './Insurance/insurance-data.component';
     HomeComponent,
     InsurancesComponent,
     RegisterComponent,
-    InsuranceDataComponent
+    InsuranceDataComponent,
+    ConvertRisksPipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -28,6 +31,7 @@ import { InsuranceDataComponent } from './Insurance/insurance-data.component';
       { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterComponent },
       { path: 'insurance', component: InsurancesComponent, canActivate: [NonAdminGuard] },
+      { path: 'insurance/add', component: InsuranceDataComponent, canActivate: [NonAddGuard] },
       { path: '**', component: HomeComponent, pathMatch: 'full' },
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ])

@@ -21,10 +21,13 @@ namespace GAPInsuranceApp.Repositories
             {
                 return null;
             }
-            // return 401 Unathorized from the controller
-            if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+            if (user.PasswordSalt != null) ///ONLY FOR TESTING PORPUSES FOR TEST USERS IN THE DB
             {
-                return null;
+                // return 401 Unathorized from the controller
+                if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                {
+                    return null;
+                }
             }
 
             return user;
@@ -46,8 +49,6 @@ namespace GAPInsuranceApp.Repositories
 
         public async Task<User> Register(User user, string password)
         {
-            // first since both variables are byte[] separate with a comma, then, use the "out" keyword to point to a reference of the variables
-            // this means since the method passed both variables to CreatePasswordHash, once the values are set the variables with update to the new values 
             byte[] passwordHash, passwordSalt;
             CreatePasswordHash(password, out passwordHash, out passwordSalt);
 

@@ -1,0 +1,6 @@
+input:invalid {
+    border:1px solid red;
+}
+.header{
+    margin-bottom: 40px;
+}

@@ -10,7 +10,6 @@ namespace GAPInsuranceApp.DTOs
         public string Name { get; set; }
         public string LastName { get; set; }
         public Roles Role { get; set; }
-        [Required]
         public string Password { get; set; }
     }
 }

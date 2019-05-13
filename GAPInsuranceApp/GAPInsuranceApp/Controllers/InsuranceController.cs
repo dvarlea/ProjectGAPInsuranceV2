@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using GAPInsuranceApp.DTOs;
 using GAPInsuranceApp.Interfaces;
+using GAPInsuranceApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,14 +30,33 @@ namespace GAPInsuranceApp.Controllers
             try
             {
                 var results = await _insuranceRepo.GetInsurances(userId);
-                if(results == null || results.Count() == 0)
+                if (results == null || results.Count() == 0)
                 {
                     return NoContent();
                 }
                 InsuranceDTO[] insurances = _mapper.Map<InsuranceDTO[]>(results);
                 return Ok(insurances);
             }
-            catch(Exception)
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpDelete("{userId}/userId")]
+        public async Task<IActionResult> DeleteInsurance(int userId, [FromBodyAttribute] InsuranceDTO insuranceDTO)
+        {
+            try
+            {
+                Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
+                var results = await _insuranceRepo.Delete(insurance, userId);
+                if (results == false)
+                {
+                    return BadRequest(false);
+                }
+                return Ok(true);
+            }
+            catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }

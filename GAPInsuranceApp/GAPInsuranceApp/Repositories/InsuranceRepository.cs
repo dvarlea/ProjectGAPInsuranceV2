@@ -56,7 +56,7 @@ namespace GAPInsuranceApp.Repositories
                 return false;
             }
             _context.Add(insurance);
-            return true;
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         public async Task<bool> Delete(Insurance insurance, int userId)
@@ -67,7 +67,7 @@ namespace GAPInsuranceApp.Repositories
                 return false;
             }
             _context.Remove(insurance);
-            return true;
+            return (await _context.SaveChangesAsync()) > 0;
         }
 
         public async Task<bool> Update(Insurance insurance, int userId)
@@ -78,7 +78,7 @@ namespace GAPInsuranceApp.Repositories
                 return false;
             }
             _context.Update(insurance);
-            return true;
+            return (await _context.SaveChangesAsync()) > 0;
         }
     }
 }
