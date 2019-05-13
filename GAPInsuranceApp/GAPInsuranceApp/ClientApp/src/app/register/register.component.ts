@@ -16,11 +16,12 @@ export class RegisterComponent {
   }
 
   register() {
-    this.model.role = 0//admin
+    this.model.role = 0//admin harcoded, admin user in the future
     this.authService.register(this.model).subscribe(() => {
       this.model = {};
-    }, error => {
-      alert('An error ocurred');
+      alert('User registered successfully, please Log in');
+    }, () => {
+      alert('An error ocurred, User already exists');
     });
   }
 }

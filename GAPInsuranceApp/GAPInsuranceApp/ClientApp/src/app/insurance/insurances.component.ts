@@ -13,8 +13,8 @@ export class InsurancesComponent {
   public insurances: IInsurance[];
   public baseUrl: string;
 
-  constructor(private authService: AuthService, private insuService: InsuranceService, 
-    private http: HttpClient, @Inject('BASE_URL') url: string, private router:Router) {
+  constructor(private authService: AuthService, private insuService: InsuranceService,
+    private http: HttpClient, @Inject('BASE_URL') url: string, private router: Router) {
     this.baseUrl = url;
 
   }
@@ -28,17 +28,19 @@ export class InsurancesComponent {
   }
 
   deleteInsurance(insurance: IInsurance): void {
-    this.insuService.deleteInsurance(insurance).subscribe(result => {
-      this.getInsuraces();
-    }, error => console.error(error));
+    if (confirm("Are you sure you want to delete this Insurance?")) {
+      this.insuService.deleteInsurance(insurance).subscribe(() => {
+        this.getInsuraces();
+      }, () => alert('An error ocurred while deleting your insurance'));
+    }
   }
 
-  editInsurance(insurance: IInsurance):void {
+  editInsurance(insurance: IInsurance): void {
     this.insuService.setInsuranceUpdate(insurance);
     this.router.navigate(['/insurance/edit']);
   }
 
-  getInsuraces(): void{
+  getInsuraces(): void {
     this.insuService.getInsurances().subscribe(result => {
       this.insurances = result;
     }, error => console.error(error));

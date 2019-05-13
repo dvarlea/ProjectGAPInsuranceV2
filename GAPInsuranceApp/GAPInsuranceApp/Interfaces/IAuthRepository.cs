@@ -10,5 +10,6 @@ namespace GAPInsuranceApp.Interfaces
         Task<User> Login(string username, string password);
 
         Task<bool> UserExists(string username);
+        Task<bool> IdExists(int id);
     }
 }

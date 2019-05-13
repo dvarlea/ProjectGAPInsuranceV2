@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GAPInsuranceApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190513043843_DBMigration")]
-    partial class DBMigration
+    [Migration("20190513081115_DbMigration")]
+    partial class DbMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,7 @@ namespace GAPInsuranceApp.Migrations
                         new
                         {
                             Id = 999999,
-                            Begining = new DateTime(2019, 5, 12, 22, 38, 42, 748, DateTimeKind.Local).AddTicks(9872),
+                            Begining = new DateTime(2019, 5, 13, 2, 11, 15, 182, DateTimeKind.Local).AddTicks(9723),
                             ClientId = 123456789,
                             CoverageAmt = 0.59999999999999998,
                             Coverages = "Accidente, Robo",
@@ -66,7 +66,7 @@ namespace GAPInsuranceApp.Migrations
                         new
                         {
                             Id = 999998,
-                            Begining = new DateTime(2019, 5, 12, 22, 38, 42, 750, DateTimeKind.Local).AddTicks(3774),
+                            Begining = new DateTime(2019, 5, 13, 2, 11, 15, 183, DateTimeKind.Local).AddTicks(8347),
                             ClientId = 123456789,
                             CoverageAmt = 0.5,
                             Coverages = "Incendio, Robo",
@@ -80,9 +80,7 @@ namespace GAPInsuranceApp.Migrations
 
             modelBuilder.Entity("GAPInsuranceApp.Models.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("Id");
 
                     b.Property<string>("LastName");
 

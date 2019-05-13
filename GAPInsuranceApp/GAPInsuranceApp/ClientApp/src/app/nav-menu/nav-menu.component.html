@@ -15,7 +15,7 @@
           </li>
         </ul>
         <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
-          <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required
+          <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username or ID" required
             [(ngModel)]="model.username">
           <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password"
             [(ngModel)]="model.password">
@@ -27,7 +27,7 @@
             <a class="nav-link user">Welcome {{authService.decodedToken?.unique_name | titlecase}}</a>
           </li>
         </ul>
-        <button class="btn btn-primary register my-2 my-sm-0" (click)="onRegisterClick()">Register</button>
+        <button *ngIf="(!loggedIn() || (loggedIn() && isAdmin()))" class="btn btn-primary register my-2 my-sm-0" (click)="onRegisterClick()">Register</button>
         <button class="btn btn-warning my-2 my-sm-0" *ngIf="loggedIn()" (click)="logout()">Logout</button>
       </div>
     </div>

@@ -20,7 +20,6 @@ export class NavMenuComponent {
   login(): void{
     this.authService.login(this.model).subscribe(next => {
       this.router.navigate(['/insurance']);
-      //this.alertify.success('Logged in Successfully');
     }, error => {
       this.errorLogIn = true;   
     });
@@ -33,7 +32,6 @@ export class NavMenuComponent {
   logout(): void {
     this.authService.logout();
     this.router.navigate(['/home']);
-    //this.alertify.message('Logged Out');
   }
 
   collapse(): void {

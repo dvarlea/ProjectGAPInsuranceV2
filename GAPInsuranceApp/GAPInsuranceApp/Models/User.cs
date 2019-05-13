@@ -1,7 +1,10 @@
-﻿namespace GAPInsuranceApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace GAPInsuranceApp.Models
 {
     public class User
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         public string Username { get; set; }
         public string Name { get; set; }

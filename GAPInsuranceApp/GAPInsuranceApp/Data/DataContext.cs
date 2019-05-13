@@ -24,7 +24,6 @@ namespace GAPInsuranceApp.Data
                     Name = "Juan",
                     LastName = "Rodrigues",
                     Role = Roles.Client
-
                 });
 
             builder.Entity<Insurance>()

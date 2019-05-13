@@ -16,10 +16,18 @@ namespace GAPInsuranceApp.Repositories
         public async Task<User> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
-            // return 401 Unathorized from the controller
             if (user == null)
             {
-                return null;
+                int result;
+                if(!int.TryParse(username, out result))
+                {
+                    return null;
+                }
+                user = await _context.Users.FirstOrDefaultAsync(u => u.Id == result);
+                if (user == null)
+                {
+                    return null;
+                }
             }
             if (user.PasswordSalt != null) ///ONLY FOR TESTING PORPUSES FOR TEST USERS IN THE DB
             {
@@ -54,7 +62,6 @@ namespace GAPInsuranceApp.Repositories
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
@@ -63,7 +70,6 @@ namespace GAPInsuranceApp.Repositories
 
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            // wrapped in using because the HMAC method utilizes a Dispose() call
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
             {
                 passwordSalt = hmac.Key;
@@ -74,6 +80,13 @@ namespace GAPInsuranceApp.Repositories
         public async Task<bool> UserExists(string username)
         {
             if (await _context.Users.AnyAsync(u => u.Username == username)) return true;
+
+            return false;
+        }
+
+        public async Task<bool> IdExists(int id)
+        {
+            if (await _context.Users.AnyAsync(u => u.Id == id)) return true;
 
             return false;
         }

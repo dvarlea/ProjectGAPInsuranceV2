@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GAPInsuranceApp.Migrations
 {
-    public partial class DBMigration : Migration
+    public partial class DbMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,8 +33,7 @@ namespace GAPInsuranceApp.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Id = table.Column<int>(nullable: false),
                     Username = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
@@ -50,12 +49,12 @@ namespace GAPInsuranceApp.Migrations
             migrationBuilder.InsertData(
                 table: "Insurances",
                 columns: new[] { "Id", "Begining", "ClientId", "CoverageAmt", "Coverages", "Description", "Name", "Price", "Risk", "TimePeriod" },
-                values: new object[] { 999999, new DateTime(2019, 5, 12, 22, 38, 42, 748, DateTimeKind.Local).AddTicks(9872), 123456789, 0.59999999999999998, "Accidente, Robo", "Seguro de Auto de Juan Rodriguez", "Seguro de Auto", 230000.0, 3, 6 });
+                values: new object[] { 999999, new DateTime(2019, 5, 13, 2, 11, 15, 182, DateTimeKind.Local).AddTicks(9723), 123456789, 0.59999999999999998, "Accidente, Robo", "Seguro de Auto de Juan Rodriguez", "Seguro de Auto", 230000.0, 3, 6 });
 
             migrationBuilder.InsertData(
                 table: "Insurances",
                 columns: new[] { "Id", "Begining", "ClientId", "CoverageAmt", "Coverages", "Description", "Name", "Price", "Risk", "TimePeriod" },
-                values: new object[] { 999998, new DateTime(2019, 5, 12, 22, 38, 42, 750, DateTimeKind.Local).AddTicks(3774), 123456789, 0.5, "Incendio, Robo", "Seguro de Vivienda de Juan Rodriguez", "Seguro de Vivienda", 500000.0, 1, 12 });
+                values: new object[] { 999998, new DateTime(2019, 5, 13, 2, 11, 15, 183, DateTimeKind.Local).AddTicks(8347), 123456789, 0.5, "Incendio, Robo", "Seguro de Vivienda de Juan Rodriguez", "Seguro de Vivienda", 500000.0, 1, 12 });
 
             migrationBuilder.InsertData(
                 table: "Users",

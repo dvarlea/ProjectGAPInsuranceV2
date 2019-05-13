@@ -6,6 +6,8 @@ namespace GAPInsuranceApp.DTOs
     public class RegisterUserDTO
     {
         [Required]
+        public int id { get; set; }
+        [Required]
         public string Username { get; set; }
         [Required]
         public string Name { get; set; }
