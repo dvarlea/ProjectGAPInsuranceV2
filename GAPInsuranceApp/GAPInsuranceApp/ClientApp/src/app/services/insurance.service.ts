@@ -32,26 +32,18 @@ export class InsuranceService {
   }
 
   addInsurance(insurance): Observable<boolean> {
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      body: insurance
-    }
     return this.http.post<boolean>(this.baseUrl + localStorage.getItem('user') + '/userId', insurance);
   }
 
   updateInsurance(insurance: IInsurance): Observable<boolean> {
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      }),
-      body: insurance
-    }
-    return this.http.put<boolean>(this.baseUrl + localStorage.getItem('user') + '/userId', options);
+    return this.http.put<boolean>(this.baseUrl + localStorage.getItem('user') + '/userId', insurance);
   }
 
-  setInsuranceUpdate(ins: IInsurance){
+  setInsuranceUpdate(ins: IInsurance): void{
     this.insurance = ins;
+  }
+
+  getInsuranceUpdate(): IInsurance{
+    return this.insurance;
   }
 }

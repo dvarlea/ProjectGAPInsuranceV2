@@ -9,10 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { InsurancesComponent } from './insurance/insurances.component';
 import { RegisterComponent } from './register/register.component';
 import { NonAdminGuard } from './guards/non-admin.guard';
-import { InsuranceDataComponent } from './insurance/insurance-data.component';
+import { InsuranceDataComponent } from './insurance/insuranceAdd/insurance-data.component';
 import { ConvertRisksPipe } from './shared/risks.pipe';
 import { NonAddGuard } from './guards/non-add.guard';
-import { InsuranceEditComponent } from './Insurance/insurance-edit.component';
+import { InsuranceEditComponent } from './insurance/insuranceEdit/insurance-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { InsuranceEditComponent } from './Insurance/insurance-edit.component';
       { path: 'register', component: RegisterComponent },
       { path: 'insurance', component: InsurancesComponent, canActivate: [NonAdminGuard] },
       { path: 'insurance/add', component: InsuranceDataComponent, canActivate: [NonAddGuard] },
+      { path: 'insurance/edit', component: InsuranceEditComponent, canActivate: [NonAddGuard] },
       { path: '**', component: HomeComponent, pathMatch: 'full' },
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ])

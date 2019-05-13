@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IInsurance } from '../interfaces/Iinsurance';
-import { InsuranceService } from '../services/insurance.service';
+import { InsuranceService } from '../../services/insurance.service';
 
 @Component({
   selector: 'app-insurance-data',

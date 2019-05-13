@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { IInsurance } from '../interfaces/Iinsurance';
 import { AuthService } from '../services/auth_services/auth.service';
 import { InsuranceService } from '../services/insurance.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './insurances.component.html',
@@ -12,7 +13,8 @@ export class InsurancesComponent {
   public insurances: IInsurance[];
   public baseUrl: string;
 
-  constructor(private authService: AuthService, private insuService: InsuranceService, private http: HttpClient, @Inject('BASE_URL') url: string) {
+  constructor(private authService: AuthService, private insuService: InsuranceService, 
+    private http: HttpClient, @Inject('BASE_URL') url: string, private router:Router) {
     this.baseUrl = url;
 
   }
@@ -33,6 +35,7 @@ export class InsurancesComponent {
 
   editInsurance(insurance: IInsurance):void {
     this.insuService.setInsuranceUpdate(insurance);
+    this.router.navigate(['/insurance/edit']);
   }
 
   getInsuraces(): void{

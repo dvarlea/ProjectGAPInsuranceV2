@@ -22,7 +22,7 @@
   <tbody>
     <tr *ngFor="let insurance of insurances">
       <td *ngIf="isAdmin()">
-        <a [routerLink]='["/insurance"]'><i class="fas fa-pencil-alt"></i></a>
+        <a class="cursor" (click)="editInsurance(insurance)"><i class="fas fa-pencil-alt"></i></a>
       </td>
       <td *ngIf="isAdmin()">
         <a class="cursor" (click)="deleteInsurance(insurance)"><i class="fas fa-trash"></i></a>
