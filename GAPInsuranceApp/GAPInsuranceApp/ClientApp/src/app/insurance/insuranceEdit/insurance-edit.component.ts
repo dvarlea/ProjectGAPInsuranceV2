@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InsuranceService } from '../../services/insurance.service';
 import { IInsurance } from 'src/app/interfaces/Iinsurance';
 import { Router } from '@angular/router';
+import { Risks } from 'src/app/shared/risks';
 
 @Component({
   selector: 'app-insurance-edit',
@@ -18,7 +19,22 @@ export class InsuranceEditComponent implements OnInit {
     this.model.coverageAmt = this.model.coverageAmt*100;
   }
 
+  validate(): boolean{
+    if(this.model.coverageAmt > 50 && this.model.risk == Risks.Alto){
+      alert('La covertura no puede ser superior al 50% en caso de riesgo alto');
+      return false;
+    }
+    if(this.model.coverageAmt > 100 || this.model.coverageAmt < 0 ){
+      alert('La covertura debe estar entre 0 y 100%');
+      return false;
+    }
+    return true;
+  }
+
   editInsurance(): void{
+    if(!this.validate()){
+      return;
+    }
     let insurance: IInsurance = {
       id: this.model.id,
       clientId: this.model.clientId,
