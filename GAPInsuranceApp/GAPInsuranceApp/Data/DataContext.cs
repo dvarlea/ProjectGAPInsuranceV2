@@ -71,7 +71,7 @@ namespace GAPInsuranceApp.Data
                },
                new Insurance
                {
-                   Id = 2,
+                   Id = 3,
                    Name = "Seguro de Vida",
                    Price = 2000,
                    TimePeriod = 24,
@@ -84,7 +84,7 @@ namespace GAPInsuranceApp.Data
                },
                new Insurance
                {
-                   Id = 2,
+                   Id = 4,
                    Name = "Seguro de Desempleo",
                    Price = 50,
                    TimePeriod = 3,
@@ -97,7 +97,7 @@ namespace GAPInsuranceApp.Data
                },
                new Insurance
                {
-                   Id = 2,
+                   Id = 5,
                    Name = "Seguro de Vivienda",
                    Price = 200,
                    TimePeriod = 2,
@@ -110,7 +110,7 @@ namespace GAPInsuranceApp.Data
                },
                new Insurance
                {
-                   Id = 2,
+                   Id = 6,
                    Name = "Seguro de Viaje",
                    Price = 40,
                    TimePeriod = 1,
