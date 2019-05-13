@@ -27,7 +27,7 @@
             <a class="nav-link user">Welcome {{authService.decodedToken?.unique_name | titlecase}}</a>
           </li>
         </ul>
-        <button *ngIf="(!loggedIn() || (loggedIn() && isAdmin()))" class="btn btn-primary register my-2 my-sm-0" (click)="onRegisterClick()">Register</button>
+        <button *ngIf="(!loggedIn())" class="btn btn-primary register my-2 my-sm-0" (click)="onRegisterClick()">Register</button>
         <button class="btn btn-warning my-2 my-sm-0" *ngIf="loggedIn()" (click)="logout()">Logout</button>
       </div>
     </div>
