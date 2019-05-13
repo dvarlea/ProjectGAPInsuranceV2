@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InsuranceService } from '../../services/insurance.service';
+import { Risks } from 'src/app/shared/risks';
 
 @Component({
   selector: 'app-insurance-data',
@@ -51,9 +52,4 @@ export class InsuranceDataComponent implements OnInit {
   }
 }
 
-enum Risks {
-  Alto = 1,
-  MedioAlto,
-  Medio,
-  Bajo
-}
+

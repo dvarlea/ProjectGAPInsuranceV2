@@ -68,6 +68,10 @@ namespace GAPInsuranceApp.Controllers
             try
             {
                 Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
+                if (!Validate(insurance))
+                {
+                    return BadRequest("La covertura no puede ser superior al 50% en caso de riesgo alto");
+                }
                 var results = await _insuranceRepo.Update(insurance, userId);
                 if (results == false)
                 {
@@ -87,6 +91,10 @@ namespace GAPInsuranceApp.Controllers
             try
             {
                 Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
+                if(!Validate(insurance))
+                {
+                    return BadRequest("La covertura no puede ser superior al 50% en caso de riesgo alto");
+                }
                 var results = await _insuranceRepo.Add(insurance, userId);
                 if (results == false)
                 {
@@ -98,6 +106,15 @@ namespace GAPInsuranceApp.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
+        }
+
+        private bool Validate(Insurance insurance)
+        {
+            if (insurance.Risk == Risks.Alto && insurance.CoverageAmt > 0.5)
+            {
+                return false;
+            }
+            return true;
         }
 
     }

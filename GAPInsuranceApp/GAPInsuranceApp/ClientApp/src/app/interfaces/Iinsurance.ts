@@ -1,3 +1,5 @@
+import { Risks } from "../shared/risks";
+
 export interface IInsurance {
     id: number;
     clientId: number;
@@ -11,9 +13,3 @@ export interface IInsurance {
     risk: Risks;
 }
 
-enum Risks {
-    Alto = 1,
-    MedioAlto,
-    Medio,
-    Bajo
-}
