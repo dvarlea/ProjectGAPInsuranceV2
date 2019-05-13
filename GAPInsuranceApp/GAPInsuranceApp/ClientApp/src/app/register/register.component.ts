@@ -18,7 +18,7 @@ export class RegisterComponent {
   register() {
     this.model.role = 0//admin
     this.authService.register(this.model).subscribe(() => {
-      this.model = null;
+      this.model = {};
     }, error => {
       alert('An error ocurred');
     });

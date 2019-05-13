@@ -12,6 +12,7 @@ import { NonAdminGuard } from './guards/non-admin.guard';
 import { InsuranceDataComponent } from './insurance/insurance-data.component';
 import { ConvertRisksPipe } from './shared/risks.pipe';
 import { NonAddGuard } from './guards/non-add.guard';
+import { InsuranceEditComponent } from './Insurance/insurance-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NonAddGuard } from './guards/non-add.guard';
     InsurancesComponent,
     RegisterComponent,
     InsuranceDataComponent,
-    ConvertRisksPipe
+    ConvertRisksPipe,
+    InsuranceEditComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

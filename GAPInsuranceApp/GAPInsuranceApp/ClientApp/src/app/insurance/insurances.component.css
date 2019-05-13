@@ -7,3 +7,7 @@
 .fa-trash{
     color: rgb(197, 13, 13) !important;
 }
+
+.cursor {
+    cursor: pointer ;
+}

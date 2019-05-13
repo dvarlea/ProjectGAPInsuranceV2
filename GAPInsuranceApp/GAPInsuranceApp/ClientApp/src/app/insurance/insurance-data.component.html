@@ -1,44 +1,45 @@
 <h1 class="header">Create New Insurance</h1>
 <div class="row">
   <div class="col-md-10 mx-auto">
-    <form #addForm="ngForm" (ngSubmit)="algo()">
+    <form #addForm="ngForm" (ngSubmit)="addInsurance()">
       <div class="form-group row">
         <div class="col-sm-6">
           <label for="clientId">Client Id</label>
-          <input type="text" class="form-control" id="clientId" placeholder="Client Id Number"
-            [(ngModel)]="model.clientId" required>
+          <input type="number" class="form-control" id="clientId" placeholder="Client Id Number" required
+            name="clientId" [(ngModel)]="model.clientId">
         </div>
         <div class="col-sm-6">
           <label for="name">Insurance Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Ej: Seguro de Automovil"
-            [(ngModel)]="model.name" required>
+          <input type="text" class="form-control" id="name" placeholder="Ej: Seguro de Automovil" required name="name"
+            [(ngModel)]="model.name">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-6">
           <label for="description">Description</label>
-          <input type="text" class="form-control" id="description" [(ngModel)]="model.description"
+          <input type="text" class="form-control" id="description" [(ngModel)]="model.description" name="description"
             placeholder="Description of the Insurance">
         </div>
         <div class="col-sm-6">
           <label for="coverages">Coverages</label>
-          <input type="text" class="form-control" id="coverages" [(ngModel)]="model.coverages"
-            placeholder="Ej: Incendio, Robo" required>
+          <input type="text" class="form-control" id="coverages" [(ngModel)]="model.coverages" required name="coverages"
+            placeholder="Ej: Incendio, Robo">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-sm-6">
           <label for="coverageAmt">Coverage Amount Percentage</label>
-          <input type="number" max="100" class="form-control" id="coverageAmt" placeholder="Ej: 50"
-            [(ngModel)]="model.coverageAmt" required>
+          <input type="number" min="0" max="100" class="form-control" id="coverageAmt" placeholder="Ej: 50" required
+            name="coverageAmt" [(ngModel)]="model.coverageAmt">
         </div>
         <div class="col-sm-3">
           <label for="begining">Beginging Date</label>
-          <input type="date" class="form-control" id="begining" [(ngModel)]="model.begining" required>
+          <input type="date" class="form-control" id="begining" required name="begining"
+            [(ngModel)]="model.begining">
         </div>
         <div class="col-sm-3">
           <label for="risk">Risk</label>
-          <select class="form-control" id="risk" [(ngModel)]="model.risk">
+          <select class="form-control" id="risk" name="risk" [(ngModel)]="model.risk">
             <option value="1">Alto</option>
             <option value="2">Medio-Alto</option>
             <option value="3">Medio</option>
@@ -49,13 +50,13 @@
       <div class="form-group row">
         <div class="col-sm-6">
           <label for="price">Price</label>
-          <input type="number" class="form-control" id="price" placeholder="Insurance Price" [(ngModel)]="model.price"
-            required>
+          <input type="number" class="form-control" id="price" placeholder="Insurance Price" min="0" required
+            name="price" [(ngModel)]="model.price">
         </div>
         <div class="col-sm-3">
           <label for="timePeriod">Time Period</label>
-          <input type="number" class="form-control" id="timePeriod" placeholder="Months period"
-            [(ngModel)]="model.timePeriod" required>
+          <input type="number" class="form-control" id="timePeriod" placeholder="Months period" required
+            name="timePeriod" [(ngModel)]="model.timePeriod">
         </div>
       </div>
       <div class="form-group">

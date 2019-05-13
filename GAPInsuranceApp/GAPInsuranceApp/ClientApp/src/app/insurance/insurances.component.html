@@ -25,7 +25,7 @@
         <a [routerLink]='["/insurance"]'><i class="fas fa-pencil-alt"></i></a>
       </td>
       <td *ngIf="isAdmin()">
-        <a (click)="deleteInsurance(insurance)"><i class="fas fa-trash"></i></a>
+        <a class="cursor" (click)="deleteInsurance(insurance)"><i class="fas fa-trash"></i></a>
       </td>
       <td hidden>{{ insurance.id }}</td>
       <td>{{ insurance.clientId }}</td>

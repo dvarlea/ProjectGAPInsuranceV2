@@ -1,4 +1,6 @@
 ﻿using GAPInsuranceApp.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +11,6 @@ namespace GAPInsuranceApp.DTOs
 {
     public class InsuranceDTO
     {
-        [Required]
         public int Id { get; set; }
         [Required]
         public int ClientId { get; set; }
@@ -22,8 +23,8 @@ namespace GAPInsuranceApp.DTOs
         public DateTime Begining { get; set; }
         [Required]
         public int TimePeriod { get; set; }
-        public double Price { get; set; }
         [Required]
+        public double Price { get; set; }
         public Risks Risk { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace GAPInsuranceApp.Migrations
                         new
                         {
                             Id = 999999,
-                            Begining = new DateTime(2019, 5, 12, 3, 35, 31, 311, DateTimeKind.Local).AddTicks(7998),
+                            Begining = new DateTime(2019, 5, 12, 22, 38, 42, 748, DateTimeKind.Local).AddTicks(9872),
                             ClientId = 123456789,
                             CoverageAmt = 0.59999999999999998,
                             Coverages = "Accidente, Robo",
@@ -64,7 +64,7 @@ namespace GAPInsuranceApp.Migrations
                         new
                         {
                             Id = 999998,
-                            Begining = new DateTime(2019, 5, 12, 3, 35, 31, 313, DateTimeKind.Local).AddTicks(3153),
+                            Begining = new DateTime(2019, 5, 12, 22, 38, 42, 750, DateTimeKind.Local).AddTicks(3774),
                             ClientId = 123456789,
                             CoverageAmt = 0.5,
                             Coverages = "Incendio, Robo",

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GAPInsuranceApp.Migrations
 {
-    public partial class DbMigration : Migration
+    public partial class DBMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,12 +50,12 @@ namespace GAPInsuranceApp.Migrations
             migrationBuilder.InsertData(
                 table: "Insurances",
                 columns: new[] { "Id", "Begining", "ClientId", "CoverageAmt", "Coverages", "Description", "Name", "Price", "Risk", "TimePeriod" },
-                values: new object[] { 999999, new DateTime(2019, 5, 12, 3, 35, 31, 311, DateTimeKind.Local).AddTicks(7998), 123456789, 0.59999999999999998, "Accidente, Robo", "Seguro de Auto de Juan Rodriguez", "Seguro de Auto", 230000.0, 3, 6 });
+                values: new object[] { 999999, new DateTime(2019, 5, 12, 22, 38, 42, 748, DateTimeKind.Local).AddTicks(9872), 123456789, 0.59999999999999998, "Accidente, Robo", "Seguro de Auto de Juan Rodriguez", "Seguro de Auto", 230000.0, 3, 6 });
 
             migrationBuilder.InsertData(
                 table: "Insurances",
                 columns: new[] { "Id", "Begining", "ClientId", "CoverageAmt", "Coverages", "Description", "Name", "Price", "Risk", "TimePeriod" },
-                values: new object[] { 999998, new DateTime(2019, 5, 12, 3, 35, 31, 313, DateTimeKind.Local).AddTicks(3153), 123456789, 0.5, "Incendio, Robo", "Seguro de Vivienda de Juan Rodriguez", "Seguro de Vivienda", 500000.0, 1, 12 });
+                values: new object[] { 999998, new DateTime(2019, 5, 12, 22, 38, 42, 750, DateTimeKind.Local).AddTicks(3774), 123456789, 0.5, "Incendio, Robo", "Seguro de Vivienda de Juan Rodriguez", "Seguro de Vivienda", 500000.0, 1, 12 });
 
             migrationBuilder.InsertData(
                 table: "Users",

@@ -44,12 +44,50 @@ namespace GAPInsuranceApp.Controllers
         }
 
         [HttpDelete("{userId}/userId")]
-        public async Task<IActionResult> DeleteInsurance(int userId, [FromBodyAttribute] InsuranceDTO insuranceDTO)
+        public async Task<IActionResult> DeleteInsurance(int userId, [FromBody] InsuranceDTO insuranceDTO)
         {
             try
             {
                 Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
                 var results = await _insuranceRepo.Delete(insurance, userId);
+                if (results == false)
+                {
+                    return BadRequest(false);
+                }
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPut("{userId}/userId")]
+        public async Task<IActionResult> UpdateInsurance(int userId, [FromBody] InsuranceDTO insuranceDTO)
+        {
+            try
+            {
+                Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
+                var results = await _insuranceRepo.Update(insurance, userId);
+                if (results == false)
+                {
+                    return BadRequest(false);
+                }
+                return Ok(true);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPost("{userId}/userId")]
+        public async Task<IActionResult> AddInsurance(int userId, [FromBody] InsuranceDTO insuranceDTO)
+        {
+            try
+            {
+                Insurance insurance = _mapper.Map<Insurance>(insuranceDTO);
+                var results = await _insuranceRepo.Add(insurance, userId);
                 if (results == false)
                 {
                     return BadRequest(false);

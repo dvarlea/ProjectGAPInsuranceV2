@@ -31,6 +31,10 @@ export class InsurancesComponent {
     }, error => console.error(error));
   }
 
+  editInsurance(insurance: IInsurance):void {
+    this.insuService.setInsuranceUpdate(insurance);
+  }
+
   getInsuraces(): void{
     this.insuService.getInsurances().subscribe(result => {
       this.insurances = result;
