@@ -6,35 +6,24 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { InsurancesComponent } from './insurance/insurances.component';
 import { RegisterComponent } from './register/register.component';
-import { NonAdminGuard } from './guards/non-admin.guard';
-import { InsuranceDataComponent } from './insurance/insuranceAdd/insurance-data.component';
-import { ConvertRisksPipe } from './shared/risks.pipe';
-import { NonAddGuard } from './guards/non-add.guard';
-import { InsuranceEditComponent } from './insurance/insuranceEdit/insurance-edit.component';
+import { InsuranceModule } from './insurance/insurance.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    InsurancesComponent,
-    RegisterComponent,
-    InsuranceDataComponent,
-    ConvertRisksPipe,
-    InsuranceEditComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    InsuranceModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'insurance', component: InsurancesComponent, canActivate: [NonAdminGuard] },
-      { path: 'insurance/add', component: InsuranceDataComponent, canActivate: [NonAddGuard] },
-      { path: 'insurance/edit', component: InsuranceEditComponent, canActivate: [NonAddGuard] },
       { path: '**', component: HomeComponent, pathMatch: 'full' },
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ])
